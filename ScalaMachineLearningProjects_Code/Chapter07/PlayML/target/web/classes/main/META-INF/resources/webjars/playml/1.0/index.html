@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App" ng-controller="Ctrl">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Option trading using QLearning</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="assets/css/nv.d3.css" type="text/css" rel="stylesheet"/>
+
+    <style>
+        #divLoading.show {
+            display: block;
+            position: fixed;
+            z-index: 9999;
+            opacity: 0.9;
+            background: #ffffff url('assets/img/spinner.gif') no-repeat center;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            top: 0;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+    </style>
+
+</head>
+<body>
+<div id="divLoading" class="show" ng-if="isLoading!=false"></div>
+
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="favicon.ico" class="brand-logo">PlayML</a>
+    </div>
+</nav>
+<main>
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <br>
+            <br>
+            <h1 class="header center orange-text">Option trading using QLearning</h1>
+
+            <div class="row center">
+                <form>
+                    <div class="row">
+                        <div class="file-field input-field col s4">
+                            <div class="btn">
+                                <span>File</span>
+                                <input ng-model="form.STOCK_PRICES" name="STOCK_PRICES" placeholder="Stock Prices"
+                                       id="STOCK_PRICES" type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input placeholder="Stock Prices" class="file-path validate" type="text">
+                            </div>
+                        </div>
+                        <div class="file-field input-field col s2">
+                            <a class="btn green accent-4" href="/data/IBM.csv"><i
+                                    class="material-icons left">cloud_download</i>Upload stock data(IBM.csv)</a>
+                        </div>
+
+                        <div class="file-field input-field col s4">
+                            <div class="btn">
+                                <span>File</span>
+                                <input ng-model="form.OPTION_PRICES" name="OPTION_PRICES" placeholder="Option Prices"
+                                       id="OPTION_PRICES" type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input placeholder="Option Prices" class="file-path validate" type="text">
+                            </div>
+                        </div>
+
+                        <div class="file-field input-field col s2">
+                            <a class="btn green accent-4" href="/data/IBM_O.csv"><i class="material-icons left">cloud_download</i>Upload options data(IBM_O.csv)</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="input-field col s6">
+                            <select ng-model="form.REWARD_TYPE" id="REWARD_TYPE" name="REWARD_TYPE">
+                                <option value="Maximum reward" selected>Maximum reward</option>
+                                <option value="Random">Random</option>
+                            </select>
+                            <label>REWARD TYPE</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input ng-model="form.NUM_NEIGHBHBOR_STATES" value="3" name="NUM_NEIGHBHBOR_STATES"
+                                   id="NUM_NEIGHBHBOR_STATES" type="number"
+                                   class="validate">
+                            <label for="NUM_NEIGHBHBOR_STATES">Num Neighbor States</label>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s3">
+                            <input ng-model="form.STRIKE_PRICE" name="STRIKE_PRICE" id="STRIKE_PRICE" type="number"
+                                   class="validate" value="190.0">
+                            <label for="STRIKE_PRICE">Strike Price</label>
+                        </div>
+
+                        <div class="input-field col s3">
+                            <input ng-model="form.MIN_TIME_EXPIRATION" name="MIN_TIME_EXPIRATION"
+                                   id="MIN_TIME_EXPIRATION"
+                                   type="number" class="validate"
+                                   value="6">
+                            <label for="MIN_TIME_EXPIRATION">Min Time Expiration</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <input ng-model="form.QUANTIZATION_STEP" name="QUANTIZATION_STEP" id="QUANTIZATION_STEP"
+                                   type="number" class="validate"
+                                   value="32">
+                            <label for="QUANTIZATION_STEP">Quantization Step</label>
+                        </div>
+
+                        <div class="input-field col s3">
+                            <input ng-model="form.ALPHA" name="ALPHA" id="ALPHA" type="number" class="validate"
+                                   value="0.2">
+                            <label for="ALPHA">Alpha</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s3">
+                            <input ng-model="form.DISCOUNT" name="DISCOUNT" id="DISCOUNT" type="number" class="validate"
+                                   value="0.6">
+                            <label for="DISCOUNT">Discount</label>
+                        </div>
+
+                        <div class="input-field col s3">
+                            <input ng-model="form.MAX_EPISODE_LEN" name="MAX_EPISODE_LEN" id="MAX_EPISODE_LEN"
+                                   type="number"
+                                   class="validate" value="128">
+                            <label for="MAX_EPISODE_LEN">Max Episode Length</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <input ng-model="form.NUM_EPISODES" name="NUM_EPISODES" id="NUM_EPISODES" type="number"
+                                   class="validate" value="20">
+                            <label for="NUM_EPISODES">Num Episodes</label>
+                        </div>
+
+                        <div class="input-field col s3">
+                            <input ng-model="form.MIN_COVERAGE" name="MIN_COVERAGE" id="MIN_COVERAGE" type="number"
+                                   class="validate" value="0.1">
+                            <label for="MIN_COVERAGE">Min Coverage</label>
+                        </div>
+                    </div>
+
+
+                    <input type="submit" class="btn-large  waves-light orange" value="Run It!" ng-click="run()">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="section">
+            <div class="row" ng-if="result">
+                <div class="col s12">
+                    <div class="card-panel teal">
+          <span class="white-text">
+              Q-learning Goal state index: {{result.GOAL_STATE_INDEX}}
+              <br>
+              <br>
+              Q-learning Coverage {{result.COVERAGE}} for {{result.COVERAGE_STATES}} states and {{result.COVERAGE_TRANSITIONS}} transitions
+          </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col s12">
+                    <canvas id="optimalCanvas"></canvas>
+                    <canvas id="valuesCanvas"></canvas>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="page-footer orange">
+    <div class="footer-copyright">
+        <div class="container">
+            All rights reserved by Md. Rezaul Karim and Packt Publishing Ltd. Copyright © 2018
+        </div>
+    </div>
+</footer>
+<!--  Scripts-->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/angular.min.js"></script>
+<script src="assets/js/Chart.bundle.min.js"></script>
+<script src="assets/js/angular-chart.min.js"></script>
+<script src="assets/materialize/js/materialize.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>workflow - ml.workflow</title>
+          <meta name="description" content="workflow - ml.workflow" />
+          <meta name="keywords" content="workflow ml.workflow" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'ml.workflow.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../lib/package_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="ml">ml</a></p>
+        <h1>workflow</h1><span class="permalink">
+      <a href="../../index.html#ml.workflow.package" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">workflow</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Copyright (c) 2013-2017  Patrick Nicolas - Scala for Machine Learning - All rights reserved</p><p>Licensed under the Apache License, Version 2.0 (the &quot;License&quot;) you may not use this file
+except in compliance with the License. You may obtain a copy of the License at</p><p>http://www.apache.org/licenses/LICENSE-2.0</p><p>Unless required by applicable law or agreed to in writing, software is distributed on an
+&quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</p><p>The source code in this file is provided by the author for the sole purpose of illustrating the
+concepts and algorithms presented in &quot;Scala for Machine Learning 2nd edition&quot;.
+ISBN: 978-1-783355-874-2 Packt Publishing.</p><p>Version 0.99.2
+</p></div><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="ml.workflow"><span>workflow</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="ml.workflow.Aggregation" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Aggregation[T,A]extendsAnyRef"></a>
+      <a id="Aggregation[T,A]:Aggregation[T,A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Aggregation.html"><span class="name">Aggregation</span></a><span class="tparams">[<span name="T">T</span>, <span name="A">A</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#ml.workflow.package@Aggregation[T,A]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Third processing module used in the workflow.</p><div class="fullcomment"><div class="comment cmt"><p>Third processing module used in the workflow. This module is &quot;injected&quot; at run-time
+to build a dynamic computation workflow</p></div><dl class="attributes block"> <dt>Version</dt><dd><p>0.99.2</p></dd><dt>Since</dt><dd><p>0.98.1 December 11, 2013</p></dd><dt>See also</dt><dd><span class="cmt"><p>Scala for Machine Learning Chapter 2 Hello world! / Designing a workflow /
+Dependency injection</p></span></dd></dl></div>
+    </li><li name="ml.workflow.Normalization" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Normalization[T,A]extendsAnyRef"></a>
+      <a id="Normalization[T,A]:Normalization[T,A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Normalization.html"><span class="name">Normalization</span></a><span class="tparams">[<span name="T">T</span>, <span name="A">A</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#ml.workflow.package@Normalization[T,A]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Second processing module used in the workflow.</p><div class="fullcomment"><div class="comment cmt"><p>Second processing module used in the workflow. This module is &quot;injected&quot; at run-time
+to build a dynamic computation workflow</p></div><dl class="attributes block"> <dt>Version</dt><dd><p>0.99.2</p></dd><dt>Since</dt><dd><p>0.908.1 December 11, 2013</p></dd><dt>See also</dt><dd><span class="cmt"><p>Scala for Machine Learning Chapter 2 Hello world! / Designing a workflow /
+	Dependency injection</p></span></dd></dl></div>
+    </li><li name="ml.workflow.Sampling" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Sampling[T,A]extendsAnyRef"></a>
+      <a id="Sampling[T,A]:Sampling[T,A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Sampling.html"><span class="name">Sampling</span></a><span class="tparams">[<span name="T">T</span>, <span name="A">A</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#ml.workflow.package@Sampling[T,A]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">First processing module used in the test workflow.</p><div class="fullcomment"><div class="comment cmt"><p>First processing module used in the test workflow. This module is &quot;injected&quot; at run-time
+to build a dynamic computation workflow.</p></div><dl class="attributes block"> <dt>Version</dt><dd><p>0.99.2</p></dd><dt>Since</dt><dd><p>0.98.1  December 11, 2013</p></dd><dt>See also</dt><dd><span class="cmt"><p>Scala for Machine Learning Chapter 2 Hello world! / Designing a workflow /
+Dependency injection</p></span></dd></dl></div>
+    </li><li name="ml.workflow.Workflow" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Workflow[T,U,V,W]extendsAnyRef"></a>
+      <a id="Workflow[T,U,V,W]:Workflow[T,U,V,W]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Workflow.html"><span class="name">Workflow</span></a><span class="tparams">[<span name="T">T</span>, <span name="U">U</span>, <span name="V">V</span>, <span name="W">W</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#ml.workflow.package@Workflow[T,U,V,W]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Generic workflow using stackable traits/modules which instances
+are initialize at run-time.</p><div class="fullcomment"><div class="comment cmt"><p>Generic workflow using stackable traits/modules which instances
+are initialize at run-time.</p></div><dl class="attributes block"> <dt>Version</dt><dd><p>0.99.2</p></dd><dt>Since</dt><dd><p>0.98.1 December 11, 2013</p></dd><dt>See also</dt><dd><span class="cmt"><p>Scala for Machine Learning Chapter 2 Hello world! / Designing a workflow /
+Dependency injection</p></span></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="ml.workflow.data" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="data"></a>
+      <a id="data:data"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="data/package.html"><span class="name">data</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#ml.workflow.package@data" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">This package object that defines the class to manage extraction of data or documents
+from file as well as generation of data into file(s)</p><div class="fullcomment"><div class="comment cmt"><p>This package object that defines the class to manage extraction of data or documents
+from file as well as generation of data into file(s)</p><p>- Source of data (file(s), or directory() using CSV format <i>DataSource</i>
+- Source for extraction and management of documents from a Corpus <i>DocumentsSource</i>
+- Sink of data to be store in file(s) <i>DataSink</i>
+The sources and sink classes are implemented as data transform (PipeOperator)</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>Scala for Machine Learning - Appendix / Scala programming</p></span></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

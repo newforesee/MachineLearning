@@ -1,0 +1,196 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>core - ml.core</title>
+          <meta name="description" content="core - ml.core" />
+          <meta name="keywords" content="core ml.core" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'ml.core.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../lib/package_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="ml">ml</a></p>
+        <h1>core</h1><span class="permalink">
+      <a href="../../index.html#ml.core.package" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">core</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Package defined for the core component of Scala for Machine learning. The package defines
+the following components:</p><pre>- Basic matrix operations <span class="lit">''</span><span class="lit">'Matrix'</span><span class="lit">''</span>
+- Types aliases and types conversion <span class="lit">''</span><span class="lit">'Types'</span><span class="lit">''</span>
+- Monad <span class="kw">for</span> data transformation <span class="lit">''</span><span class="lit">'Monad'</span><span class="lit">''</span>
+- Data transformation <span class="kw">with</span> explicit configuration <span class="lit">''</span>'ETransform<span class="lit">''</span>'
+- Data transformation <span class="kw">with</span> model implicitly extracted from data  <span class="lit">''</span>'ITransform<span class="lit">''</span>'
+- Design pattern <span class="kw">for</span> classifiers <span class="lit">''</span>'Design.model<span class="lit">''</span><span class="lit">'and '</span><span class="lit">''</span>Design.config<span class="lit">''</span><span class="lit">'</span></pre></div><dl class="attributes block"> <dt>Version</dt><dd><p>0.99.2</p></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="ml.core"><span>core</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="ml.core.ETransform" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ETransform[T,A]extendsITransform[T,A]"></a>
+      <a id="ETransform[T,A]:ETransform[T,A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ETransform.html"><span class="name">ETransform</span></a><span class="tparams">[<span name="T">T</span>, <span name="A">A</span>]</span><span class="result"> extends <a href="ITransform.html" class="extype" name="ml.core.ITransform">ITransform</a>[<span class="extype" name="ml.core.ETransform.T">T</span>, <span class="extype" name="ml.core.ETransform.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#ml.core.package@ETransform[T,A]extendsITransform[T,A]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Define an explicit monadic data transformation.</p><div class="fullcomment"><div class="comment cmt"><p>Define an explicit monadic data transformation. An explicit transformation relies on
+a configuration (or context) to execute</p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>Type of input to the data transformation</p></dd><dt class="tparam">A</dt><dd class="cmt"><p>Type of output of the data transformation</p></dd></dl><dl class="attributes block"> <dt>Version</dt><dd><p>0.99.2</p></dd><dt>See also</dt><dd><span class="cmt"><p>Scale for Machine Learning Chapter 2 &quot;Data Pipelines&quot;</p></span></dd></dl></div>
+    </li><li name="ml.core.ITransform" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ITransform[T,A]extendsAnyRef"></a>
+      <a id="ITransform[T,A]:ITransform[T,A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ITransform.html"><span class="name">ITransform</span></a><span class="tparams">[<span name="T">T</span>, <span name="A">A</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#ml.core.package@ITransform[T,A]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Monadic implementation of a data transformation from input of type T to
+an output of type Try[A]</p><div class="fullcomment"><div class="comment cmt"><p>Monadic implementation of a data transformation from input of type T to
+an output of type Try[A]</p><pre>		data: Vector[T] <span class="kw">=&gt;</span> <span class="kw">implicit</span> model
+   t: T -&gt; | <span class="kw">implicit</span> model } -&gt; u: U</pre><p>The Partial function avoid the need define all the condition on the type and value of
+the input inj sub-classes
+A MatchErr is thrown if the value or type of the input value is not supported.</p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>Type of input to the data transformation</p></dd><dt class="tparam">A</dt><dd class="cmt"><p>Type of output of the data transformation</p></dd></dl><dl class="attributes block"> <dt>Version</dt><dd><p>0.99.2</p></dd><dt>See also</dt><dd><span class="cmt"><p>Scale for Machine Learning Chapter 2 &quot;Data Pipelines&quot;</p></span></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="ml.core.Design" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Design"></a>
+      <a id="Design:Design"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Design$.html"><span class="name">Design</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#ml.core.package@Design" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Encapsulate the high level trait used for supervised and unsupervised learning
+algorithms.</p><div class="fullcomment"><div class="comment cmt"><p>Encapsulate the high level trait used for supervised and unsupervised learning
+algorithms.
+</p></div><dl class="attributes block"> <dt>Version</dt><dd><p>0.99.2</p></dd><dt>Since</dt><dd><p>0.98.1 March 4, 2014</p></dd><dt>See also</dt><dd><span class="cmt"><p>Scale for Machine Learning Chapter 2 &quot;Data Pipelines&quot;</p></span></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

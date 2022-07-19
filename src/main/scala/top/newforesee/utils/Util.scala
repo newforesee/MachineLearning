@@ -13,9 +13,9 @@ object Util {
   def getSpark(): SparkSession = {
     try {
       SparkSession.builder().enableHiveSupport()
-        .config("spark.shuffle.service.enabled", true)
+        //.config("spark.shuffle.service.enabled", true)
         .config("spark.driver.maxResultSize", "4G")
-        .config("spark.sql.parquet.writeLegacyFormat", true)
+        //.config("spark.sql.parquet.writeLegacyFormat", true)
         .getOrCreate()
     } catch {
       case e: Exception => {

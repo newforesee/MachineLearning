@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ema</title>
+</head>
+<body>
+<script>
+    option = {
+    title: {
+        text: '折线图堆叠'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data: ['rema', 'scalaema']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: ['0', '1', '2', '3', '4', '5', '6']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name: 'rema',
+            type: 'line',
+            stack: '总量',
+            data: [null, 1.5, 3.166667, 5.0555556, 3.685185, 7.228395, 9.076132]
+        },
+        {
+            name: 'scalaema',
+            type: 'line',
+            stack: '总量',
+            data: [1.0, 1.9219512195121955, 3.2499999999999996, 5.153846153846153, 3.6999999999999993, 6.640890153439691, 7.917355371900827]
+        }
+    ]
+};
+</script>
+</body>
+</html>

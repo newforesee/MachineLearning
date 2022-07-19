@@ -1,0 +1,24 @@
+artifact_path: model
+flavors:
+  python_function:
+    data: model.xgb
+    env: conda.yaml
+    loader_module: mlflow.xgboost
+    python_version: 3.9.1
+  xgboost:
+    code: null
+    data: model.xgb
+    model_class: xgboost.sklearn.XGBRFRegressor
+    xgb_version: 1.6.1
+mlflow_version: 1.27.0
+model_uuid: 6fe3b9ab890e4d19ac49c9c9bcd4d305
+run_id: 15af12a8d95243309e2e62cf39ccbf1e
+signature:
+  inputs: '[{"name": "CRIM", "type": "double"}, {"name": "ZN", "type": "double"},
+    {"name": "INDUS", "type": "double"}, {"name": "CHAS", "type": "double"}, {"name":
+    "NOX", "type": "double"}, {"name": "RM", "type": "double"}, {"name": "AGE", "type":
+    "double"}, {"name": "DIS", "type": "double"}, {"name": "RAD", "type": "double"},
+    {"name": "TAX", "type": "double"}, {"name": "PTRATIO", "type": "double"}, {"name":
+    "B", "type": "double"}, {"name": "LSTAT", "type": "double"}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float32", "shape": [-1]}}]'
+utc_time_created: '2022-07-12 02:45:50.555905'

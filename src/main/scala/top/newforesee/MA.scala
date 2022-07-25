@@ -24,6 +24,7 @@ object MA extends Job {
       .withColumn("timesp", to_timestamp(from_unixtime($"timesp", "yyyy-MM-dd"), "yyyy-MM-dd"))
 
 
+
     data
       .groupBy($"timesp")
       .agg(count("rating") as "rating")

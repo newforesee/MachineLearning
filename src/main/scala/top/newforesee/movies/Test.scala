@@ -16,23 +16,42 @@ import top.newforesee.utils.Job
  * READ : [TableName]
  * SAVE : [TableName]
  */
-object Test extends Job{
+object Test extends Job {
+
   import spark.implicits._
-  val TRAIN_FILE = "ml-100k/ua.base"
-  val TEST_FILE = "ml-100k/ua.test"
-  val MOVIES = "ml-100k/u.item"
+
+  val TRAIN_FILE = "data/ml-100k/ua.base"
+  val TEST_FILE = "data/ml-100k/ua.test"
+  val MOVIES = "data/ml-100k/u.item"
 
   override def run(): Unit = {
 
+    //spark.conf.set("spark.sql.session.timeZone", "UTC")
+
+    println(spark.conf.get("spark.sql.session.timeZone"))
 
 
-    movies_df.show()
+    val data: DataFrame = spark.read.parquet("data/dbo.sfa_events.parquet")
+    val data2: DataFrame = data.withColumn("created_on", date_format($"created_on", "yyyy-MM-dd HH:mm:ss"))
 
-    userid_movieid_rating_df.show()
+    data.show()
+    data2.show()
+
+    spark.conf.set("spark.sql.session.timeZone", "UTC")
+
+    println(spark.conf.get("spark.sql.session.timeZone"))
+
+    data.show()
+    data2.show()
+
+    reformatDate(data).show()
 
 
-
-    SparkSession.builder().master("spark://cummins.sparkcluster.com:7077")
+    def formatCapitalizeNames(dataFrame: DataFrame): DataFrame = {
+      val capitalizedNames = dataFrame.columns.map(colname => colname.replaceAll("[(|)]", "").replaceAll(" ", "_").replaceAll("/", "").replaceAll("\\\\", "").replaceAll("-", "_").toUpperCase)
+      val originalNames = dataFrame.columns
+      dataFrame.select(List.tabulate(originalNames.length)(i => col(originalNames(i)).as(capitalizedNames(i))): _*)
+    }
 
 
 
@@ -42,11 +61,19 @@ object Test extends Job{
     // 计算平均分最高的前三部电影（没有并列仅取3部）
 
 
-
-
   }
 
 
+  private def reformatDate(data: DataFrame): DataFrame = {
+    data.schema.foldLeft(data) {
+      case (acc: DataFrame, col: StructField) => {
+        if (col.dataType == DateType)
+          acc.withColumn(col.name, date_format(data(col.name), "yyyy-MM-dd HH:mm:ss"))
+        else
+          acc.withColumn(col.name, data(col.name))
+      }
+    }
+  }
 
   case class Movie(id: Int, name: String)
 
@@ -59,7 +86,6 @@ object Test extends Job{
       Movie(feilds(0).toInt, feilds(1))
     })
   val movies_df: DataFrame = spark.createDataFrame(movies)
-
 
 
   val movieRating = spark.read.textFile(TRAIN_FILE).rdd

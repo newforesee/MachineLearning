@@ -17,6 +17,8 @@ trait Job {
     run()
     logger.log(Level.WARN, s"Finished Job in ${(System.currentTimeMillis() - start) / 1000} seconds.")
 
+    spark.stop()
+
   }
 
   def run()

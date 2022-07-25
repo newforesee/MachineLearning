@@ -11,7 +11,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.8</jdk.version>
-        <spark.version>2.3.2</spark.version>
+        <spark.version>2.4.8</spark.version>
     </properties>
 
     <dependencies>
@@ -106,11 +106,6 @@
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-mllib_2.11</artifactId>
-            <version>${spark.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-ml</artifactId>
             <version>${spark.version}</version>
         </dependency>
         <dependency>
